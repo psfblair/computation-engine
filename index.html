@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Computation-engine : A Scala library for evaluating sequences of computations written as Scala strings, on domains of arbitrary facts." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Computation-engine</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/cyrusinnovation/computation-engine">View on GitHub</a>
+
+          <h1 id="project_title">Computation-engine</h1>
+          <h2 id="project_tagline">A Scala library for evaluating sequences of computations written as Scala strings, on domains of arbitrary facts.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cyrusinnovation/computation-engine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cyrusinnovation/computation-engine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><em>"You can build a simple rules engine yourself. All you need is to create a bunch of objects with conditions and actions, store them in a collection, and run through them to evaluate the conditions and execute the actions." -- Martin Fowler, <a href="http://martinfowler.com/bliki/RulesEngine.html">"Rules Engine"</a></em></p>
+
+<p>At first blush, the <a href="http://github.com/cyrusinnovation/computation-engine">Computation Engine</a> project is just what Martin Fowler describes: a way of specifying a sequence of "rules" to execute. Unlike rules engines, though, Computation Engine is not a truth-maintenance system and does not support sophisticated techniques like backward chaining. The rules engine that Martin Fowler describes contains rules that are a series of if-then statements, and that can be written in any order. Here the vision is simpler: Put some input in at the front, run through a deterministic series of steps, and get some output at the end. The steps might be rules, but they can be any sort of computation.</p>
+
+<p>The way I've described it, this recipe seems no different from a regular function. What's so special about Computation Engine"?</p>
+
+<p>First and most obvious is that computations are specified at runtime, not compile time. Computation Engine is a Scala library, and intended to be used in Scala applications. However, the computations aren't compiled in to your application; they get evaluated in a sandbox by the Scala Script Engine at runtime. As a result, you can do things like store computations as text strings in a database and read them in when your application starts. You don't have to rebuild and redeploy a service (or your entire system) whenever your business rules change.</p>
+
+<p>Don't imagine, though, that Computation Engine will let business people specify computations themselves, as some rules engines claim to allow. The expression language that Computation Engine understands is Scala, and using this library requires not only knowing how to write Scala code to express the computations, but also how to instantiate computations. A user will need to have a fair amount of tech-savvy to use this library. Computation Engine is not only not a Business-Writable DSL, it is not even a Business-Readable DSL.</p>
+
+<p>Computation Engine has significant implications on how you write your code. The beginning of the chain of computation takes in a Scala map of <code>Symbol -&gt; Any</code>, and the ultimate result is a similar map. Abandon all type safety ye who enter here!</p>
+
+<p>The advantage of removing type constraints is that it allows computations to be specified on any arbitrary subset of the incoming data. For any given computation, one has to use certain values from the data map with certain types, e.g., the computation may use the value for the key <code>'maxValue</code>, which is an integer, while also using that for <code>'accountId</code>, which is a string. But the incoming data map can combine values of many different types, and the results of computations can add values of new types to the map, without facing the wrath of the type checker. (This, I think, is what Rich Hickey means when he says "let data be data.")</p>
+
+<p>Of course, once the chain of computations is over and you go back into Scala land, you'll have to return data of types that your application expects. But how you get there is something you can change on the fly without having to modify the rest of your application.</p>
+
+<p>Since you can't rely on the compiler to check that the right data is being passed in,  you'll have to test the hell out of your computations' clients to make sure they will always obey the contract your computation implicitly specifies. Similarly, you need to test each computation in the chain to make sure its results will always follow the contracts of computations further along that require that data. Finally, you need to test that you will always be providing results in a form that client code expects. One of the Computation Engine project's future directions is to build an application that will infer these contracts and automatically specify what tests need to be written. Ideally, ScalaCheck could be used to automate some of these tests.</p>
+
+<p>Philosophically speaking, Computation Engine is not really in harmony with object-oriented design. An object-oriented system generally groups different kinds of data with the operations that pertain to that data; business rules are expressed in the form of interactions among groups of objects. As Steve Freeman and Nat Pryce put it, "The behavior of the system is an emergent property of the composition of the objects--the choice of objects and how they are connected."[<a href="http://books.google.com/books?id=QJA3dM8Uix0C&amp;lpg=PT45&amp;ots=zrUiA-fCJo&amp;pg=PT45#v=onepage&amp;q&amp;f=false">1</a>]</p>
+
+<p>The result of object-oriented design is a system in which business rules are "coded in." It may be easier or harder to change coded-in rules: A static, compiled, class-based language makes them difficult to change, while a dynamic, interpreted, object-based language may make it fairly easy to do so. But the rules are not collected together in one place; they emerge from the interaction of the entire system of objects. Pulling on something over here can result in unexpected consequences over there.</p>
+
+<p>Computation Engine instead envisions a strict separation of operations and data. This means that once the computations are finished, you'll likely be putting the results into objects that are little more than data structures, without much in the way of methods or behaviors. In other words, you'll have an <a href="http://www.martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a>. This is by design, and you'll have to put up with being accused of promoting an anti-pattern. Situations in which your business rules are complex and likely to fluctuate a lot are not ideal candidates for object-oriented design: You'll spend a lot of time coming up with careful abstractions to cover all the scenarios you know about, and then something will come along that overturns some fundamental assumption and force you to redesign the whole thing.</p>
+
+<p>The approach taken by Computation Engine is not entirely flexible, of course. You can modify your computations as you wish, but your flexibility is still limited by the data you pass in. If your database queries or user input fields don't supply the data you need, then you'll have no alternative but to re-code them to provide that data. The runtime specification of arbitrary database queries or user input fields is beyond the scope of this framework, and is probably not even desirable from a data security point of view. But you'll be a lot more likely to succeed at predicting all the possible data that might be relevant to a certain type of computation, than at predicting all the different possible ways in which the computation might need to be carried out.</p>
+
+<p>Computation Engine is friendlier to the functional programming paradigm than to OO. Computations are intended to be stateless; the default security configuration for the Scala Script Engine tries to restrict the classes that can be used to ones that have no side effects. You can get around this restriction by providing your own security configuration, but it's not recommended. Testing computations is hard enough without having to worry about verifying changes in state.</p>
+
+<p>Besides tools for testing, the roadmap for Computation Engine envisions providing a library for reading rules from persistent storage, as well as editing tools for authoring, persisting, and publishing rules. Stay tuned for developments.</p>
+
+<p>In the meantime, enjoy!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Computation-engine maintained by <a href="https://github.com/cyrusinnovation">cyrusinnovation</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
