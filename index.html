@@ -35,7 +35,7 @@
 
 <p>At first blush, the <a href="http://github.com/cyrusinnovation/computation-engine">Computation Engine</a> project is just what Martin Fowler describes: a way of specifying a sequence of "rules" to execute. Unlike rules engines, though, Computation Engine is not a truth-maintenance system and does not support sophisticated techniques like backward chaining. The rules engine that Martin Fowler describes contains rules that are a series of if-then statements, and that can be written in any order. Here the vision is simpler: Put some input in at the front, run through a deterministic series of steps, and get some output at the end. The steps might be rules, but they can be any sort of computation.</p>
 
-<p>This description seems no different from that of a regular function. What's so special about Computation Engine"?</p>
+<p>This description seems no different from that of a regular function. What's so special about Computation Engine?</p>
 
 <p>First and most obvious is that computations are specified at runtime, not compile time. Computation Engine is a Scala library, and is intended to be used in Scala applications. However, the computations aren't compiled in to your application; they get evaluated in a sandbox by the Scala Script Engine at runtime. As a result, you can do things like store computations as text strings in a database and read them in when your application starts. You don't have to rebuild and redeploy a service (or your entire system) whenever your business rules change.</p>
 
