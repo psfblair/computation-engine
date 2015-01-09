@@ -7,7 +7,7 @@ import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import org.scalamock.scalatest.MockFactory
 import com.cyrusinnovation.computation.util.Log
-import org.scalamock.FunctionAdapter2
+import org.scalamock.function.FunctionAdapter2
 
 class ComputationTests extends FlatSpec with Matchers with MockFactory {
   implicit def toFunctionAdapter2[T1, T2, R](f: (T1, T2) => R) = {
@@ -46,7 +46,7 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
     (logger.error(_:String, _:Throwable)).verify{   // Uses implicit conversion above
       (msg: String, t: Throwable) => {
           msg == "Computation failed to compile" &&
-          t.getClass == classOf[com.googlecode.scalascriptengine.CompilationError] &&
+          t.getClass == classOf[com.googlecode.scalascriptengine.internals.CompilationError] &&
           t.getMessage.startsWith("2 error(s) occured")
       }
     }
@@ -56,14 +56,14 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
     val logger = stub[Log]
     val testRules = TestRules(logger)
 
-    evaluating {
+    an [com.googlecode.scalascriptengine.internals.CompilationError] should be thrownBy {
       testRules.simpleComputationWithSyntaxError(shouldPropagate = true)
-    } should produce[com.googlecode.scalascriptengine.CompilationError]
+    }
 
     (logger.error(_:String, _:Throwable)).verify{   // Uses implicit conversion above
       (msg: String, t: Throwable) => {
           msg == "Computation failed to compile" &&
-          t.getClass == classOf[com.googlecode.scalascriptengine.CompilationError] &&
+          t.getClass == classOf[com.googlecode.scalascriptengine.internals.CompilationError] &&
           t.getMessage.startsWith("2 error(s) occured")
       }
     }
@@ -89,9 +89,9 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
 
     val exceptionThrowingComputation: SimpleComputation = testRules.exceptionThrowingSimpleComputation(shouldPropagate = true)
 
-    evaluating {
+    an [java.lang.RuntimeException] should be thrownBy {
       exceptionThrowingComputation.compute(facts)
-    } should produce [java.lang.RuntimeException]
+    }
 
     (logger.error(_:String, _:Throwable)).verify{
       (msg: String, t: Throwable) => {
@@ -127,9 +127,9 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
 
     val facts: Map[Symbol, Any] = Map('input -> Map('unused -> 10))
 
-    evaluating {
+    an [java.security.AccessControlException] should be thrownBy {
       testRules.whitelistViolatingComputation.compute(facts)
-    } should produce[java.security.AccessControlException]
+    }
   }
 
   "A simple computation" should "not be able to use classes that are blacklisted in the security configuration" in {
@@ -138,9 +138,9 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
 
     val facts: Map[Symbol, Any] = Map('input -> Map('unused -> 10))
 
-    evaluating {
+    an [java.security.AccessControlException] should be thrownBy {
       testRules.blacklistViolatingComputation.compute(facts)
-    } should produce[java.security.AccessControlException]
+    }
   }
 
   "A simple computation" should "not be able to perform actions restricted by the Java security policy" in {
@@ -149,9 +149,9 @@ class ComputationTests extends FlatSpec with Matchers with MockFactory {
 
     val facts: Map[Symbol, Any] = Map('input -> Map('unused -> 10))
 
-    evaluating {
+    an [java.security.AccessControlException] should be thrownBy {
       testRules.javaPolicyViolatingComputation.compute(facts)
-    } should produce[java.security.AccessControlException]
+    }
   }
 
   "When creating the function body string, the computation" should "construct Scala function code from the given expression" in {

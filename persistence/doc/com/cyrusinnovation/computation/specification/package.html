@@ -1,0 +1,580 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>specification - Computation Engine Persistence API, version 1.2.1 - com.cyrusinnovation.computation.specification</title>
+          <meta name="description" content="specification - Computation Engine Persistence API version 1.2.1 - com.cyrusinnovation.computation.specification" />
+          <meta name="keywords" content="specification Computation Engine Persistence API version 1.2.1 com.cyrusinnovation.computation.specification" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'com.cyrusinnovation.computation.specification.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.cyrusinnovation">cyrusinnovation</a>.<a href="../package.html" class="extype" name="com.cyrusinnovation.computation">computation</a></p>
+        <h1>specification</h1> <span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">specification</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.cyrusinnovation.computation.specification.AbortIfComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AbortIfComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable"></a>
+      <a id="AbortIfComputationSpecification:AbortIfComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbortIfComputationSpecification.html"><span class="name">AbortIfComputationSpecification</span></a><span class="params">(<span name="packageValue">packageValue: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="changedInVersion">changedInVersion: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="shouldPropagateExceptions">shouldPropagateExceptions: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="predicateExpression">predicateExpression: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="innerSpecification">innerSpecification: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>, <span name="imports">imports: <a href="Imports.html" class="extype" name="com.cyrusinnovation.computation.specification.Imports">Imports</a></span>, <span name="input">input: <a href="Inputs.html" class="extype" name="com.cyrusinnovation.computation.specification.Inputs">Inputs</a></span>, <span name="logger">logger: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="securityConfiguration">securityConfiguration: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="TopLevelComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification">TopLevelComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@AbortIfComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.AbortIfHasResultsComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AbortIfHasResultsComputationSpecificationextendsSimpleAbortComputationSpecificationwithProductwithSerializable"></a>
+      <a id="AbortIfHasResultsComputationSpecification:AbortIfHasResultsComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbortIfHasResultsComputationSpecification.html"><span class="name">AbortIfHasResultsComputationSpecification</span></a><span class="params">(<span name="inner">inner: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>)</span><span class="result"> extends <a href="SimpleAbortComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.SimpleAbortComputationSpecification">SimpleAbortComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@AbortIfHasResultsComputationSpecificationextendsSimpleAbortComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.AbortIfNoResultsComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AbortIfNoResultsComputationSpecificationextendsSimpleAbortComputationSpecificationwithProductwithSerializable"></a>
+      <a id="AbortIfNoResultsComputationSpecification:AbortIfNoResultsComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbortIfNoResultsComputationSpecification.html"><span class="name">AbortIfNoResultsComputationSpecification</span></a><span class="params">(<span name="inner">inner: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>)</span><span class="result"> extends <a href="SimpleAbortComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.SimpleAbortComputationSpecification">SimpleAbortComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@AbortIfNoResultsComputationSpecificationextendsSimpleAbortComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.ComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ComputationSpecificationextendsSyntaxTreeNode"></a>
+      <a id="ComputationSpecification:ComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ComputationSpecification.html"><span class="name">ComputationSpecification</span></a><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@ComputationSpecificationextendsSyntaxTreeNode" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.FoldingComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FoldingComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable"></a>
+      <a id="FoldingComputationSpecification:FoldingComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FoldingComputationSpecification.html"><span class="name">FoldingComputationSpecification</span></a><span class="params">(<span name="innerSpecification">innerSpecification: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>, <span name="initialAccumulatorKey">initialAccumulatorKey: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputTuple">inputTuple: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a></span>, <span name="accumulatorTuple">accumulatorTuple: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a></span>)</span><span class="result"> extends <a href="NamableComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.NamableComputationSpecification">NamableComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@FoldingComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Imports" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ImportsextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="Imports:Imports"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Imports.html"><span class="name">Imports</span></a><span class="params">(<span name="importSequence">importSequence: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@ImportsextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.InnerComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="InnerComputationSpecificationextendsComputationSpecification"></a>
+      <a id="InnerComputationSpecification:InnerComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="InnerComputationSpecification.html"><span class="name">InnerComputationSpecification</span></a><span class="result"> extends <a href="ComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.ComputationSpecification">ComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@InnerComputationSpecificationextendsComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Inputs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InputsextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="Inputs:Inputs"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Inputs.html"><span class="name">Inputs</span></a><span class="params">(<span name="firstInputMapping">firstInputMapping: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a></span>, <span name="moreInputMappings">moreInputMappings: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a>*</span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@InputsextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.InvalidComputationSpecException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InvalidComputationSpecExceptionextendsExceptionwithProductwithSerializable"></a>
+      <a id="InvalidComputationSpecException:InvalidComputationSpecException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="InvalidComputationSpecException.html"><span class="name">InvalidComputationSpecException</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@InvalidComputationSpecExceptionextendsExceptionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.IterativeComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IterativeComputationSpecificationextendsSimpleAggregateComputationSpecificationwithProductwithSerializable"></a>
+      <a id="IterativeComputationSpecification:IterativeComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IterativeComputationSpecification.html"><span class="name">IterativeComputationSpecification</span></a><span class="params">(<span name="innerSpecification">innerSpecification: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>, <span name="inputTuple">inputTuple: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a></span>, <span name="resultKey">resultKey: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SimpleAggregateComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.SimpleAggregateComputationSpecification">SimpleAggregateComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@IterativeComputationSpecificationextendsSimpleAggregateComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Library" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LibraryextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="Library:Library"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Library.html"><span class="name">Library</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="versions">versions: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="Version.html" class="extype" name="com.cyrusinnovation.computation.specification.Version">Version</a>]</span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@LibraryextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Mapping" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MappingextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="Mapping:Mapping"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mapping.html"><span class="name">Mapping</span></a><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@MappingextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.MappingComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MappingComputationSpecificationextendsSimpleAggregateComputationSpecificationwithProductwithSerializable"></a>
+      <a id="MappingComputationSpecification:MappingComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MappingComputationSpecification.html"><span class="name">MappingComputationSpecification</span></a><span class="params">(<span name="innerSpecification">innerSpecification: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>, <span name="inputTuple">inputTuple: <a href="Mapping.html" class="extype" name="com.cyrusinnovation.computation.specification.Mapping">Mapping</a></span>, <span name="resultKey">resultKey: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SimpleAggregateComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.SimpleAggregateComputationSpecification">SimpleAggregateComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@MappingComputationSpecificationextendsSimpleAggregateComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.NamableComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NamableComputationSpecificationextendsComputationSpecification"></a>
+      <a id="NamableComputationSpecification:NamableComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NamableComputationSpecification.html"><span class="name">NamableComputationSpecification</span></a><span class="result"> extends <a href="ComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.ComputationSpecification">ComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@NamableComputationSpecificationextendsComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.NamedComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NamedComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable"></a>
+      <a id="NamedComputationSpecification:NamedComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedComputationSpecification.html"><span class="name">NamedComputationSpecification</span></a><span class="params">(<span name="packageValue">packageValue: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="changedInVersion">changedInVersion: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="specForNamableComputation">specForNamableComputation: <a href="NamableComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.NamableComputationSpecification">NamableComputationSpecification</a></span>)</span><span class="result"> extends <a href="TopLevelComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification">TopLevelComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@NamedComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Ref" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RefextendsInnerComputationSpecification"></a>
+      <a id="Ref:Ref"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Ref.html"><span class="name">Ref</span></a><span class="result"> extends <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@RefextendsInnerComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SequentialComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SequentialComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable"></a>
+      <a id="SequentialComputationSpecification:SequentialComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SequentialComputationSpecification.html"><span class="name">SequentialComputationSpecification</span></a><span class="params">(<span name="firstInnerComputation">firstInnerComputation: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>, <span name="moreInnerComputations">moreInnerComputations: <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a>*</span>)</span><span class="result"> extends <a href="NamableComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.NamableComputationSpecification">NamableComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SequentialComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SimpleAbortComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleAbortComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecification"></a>
+      <a id="SimpleAbortComputationSpecification:SimpleAbortComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleAbortComputationSpecification.html"><span class="name">SimpleAbortComputationSpecification</span></a><span class="result"> extends <a href="NamableComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.NamableComputationSpecification">NamableComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SimpleAbortComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SimpleAggregateComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleAggregateComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecification"></a>
+      <a id="SimpleAggregateComputationSpecification:SimpleAggregateComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleAggregateComputationSpecification.html"><span class="name">SimpleAggregateComputationSpecification</span></a><span class="result"> extends <a href="NamableComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.NamableComputationSpecification">NamableComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SimpleAggregateComputationSpecificationextendsNamableComputationSpecificationwithInnerComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SimpleComputationSpecification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable"></a>
+      <a id="SimpleComputationSpecification:SimpleComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleComputationSpecification.html"><span class="name">SimpleComputationSpecification</span></a><span class="params">(<span name="packageValue">packageValue: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="changedInVersion">changedInVersion: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="shouldPropagateExceptions">shouldPropagateExceptions: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="computationExpression">computationExpression: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="imports">imports: <a href="Imports.html" class="extype" name="com.cyrusinnovation.computation.specification.Imports">Imports</a></span>, <span name="input">input: <a href="Inputs.html" class="extype" name="com.cyrusinnovation.computation.specification.Inputs">Inputs</a></span>, <span name="resultKey">resultKey: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="logger">logger: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="securityConfiguration">securityConfiguration: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="TopLevelComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification">TopLevelComputationSpecification</a> with <a href="InnerComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.InnerComputationSpecification">InnerComputationSpecification</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SimpleComputationSpecificationextendsTopLevelComputationSpecificationwithInnerComputationSpecificationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SyntaxTreeNode" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SyntaxTreeNodeextendsAnyRef"></a>
+      <a id="SyntaxTreeNode:SyntaxTreeNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SyntaxTreeNode.html"><span class="name">SyntaxTreeNode</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SyntaxTreeNodeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.SyntaxTreeTextNode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SyntaxTreeTextNodeextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="SyntaxTreeTextNode:SyntaxTreeTextNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SyntaxTreeTextNode.html"><span class="name">SyntaxTreeTextNode</span></a><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@SyntaxTreeTextNodeextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TopLevelComputationSpecificationextendsComputationSpecification"></a>
+      <a id="TopLevelComputationSpecification:TopLevelComputationSpecification"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TopLevelComputationSpecification.html"><span class="name">TopLevelComputationSpecification</span></a><span class="result"> extends <a href="ComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.ComputationSpecification">ComputationSpecification</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@TopLevelComputationSpecificationextendsComputationSpecification" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Version" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VersionextendsSyntaxTreeNodewithProductwithSerializable"></a>
+      <a id="Version:Version"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Version.html"><span class="name">Version</span></a><span class="params">(<span name="versionNumber">versionNumber: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="state">state: <a href="VersionState.html" class="extype" name="com.cyrusinnovation.computation.specification.VersionState">VersionState</a></span>, <span name="commitDate">commitDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.joda.time.DateTime">DateTime</span>]</span>, <span name="lastEditDate">lastEditDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.joda.time.DateTime">DateTime</span>]</span>, <span name="firstTopLevelComputation">firstTopLevelComputation: <a href="TopLevelComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification">TopLevelComputationSpecification</a></span>, <span name="moreTopLevelComputations">moreTopLevelComputations: <a href="TopLevelComputationSpecification.html" class="extype" name="com.cyrusinnovation.computation.specification.TopLevelComputationSpecification">TopLevelComputationSpecification</a>*</span>)</span><span class="result"> extends <a href="SyntaxTreeNode.html" class="extype" name="com.cyrusinnovation.computation.specification.SyntaxTreeNode">SyntaxTreeNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@VersionextendsSyntaxTreeNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.VersionState" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="VersionStateextendsAnyRef"></a>
+      <a id="VersionState:VersionState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="VersionState.html"><span class="name">VersionState</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@VersionStateextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.cyrusinnovation.computation.specification.Committed" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Committed"></a>
+      <a id="Committed:Committed"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Committed$.html"><span class="name">Committed</span></a><span class="result"> extends <a href="VersionState.html" class="extype" name="com.cyrusinnovation.computation.specification.VersionState">VersionState</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@Committed" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.Editable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Editable"></a>
+      <a id="Editable:Editable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Editable$.html"><span class="name">Editable</span></a><span class="result"> extends <a href="VersionState.html" class="extype" name="com.cyrusinnovation.computation.specification.VersionState">VersionState</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@Editable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.cyrusinnovation.computation.specification.VersionState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VersionState"></a>
+      <a id="VersionState:VersionState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VersionState$.html"><span class="name">VersionState</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.cyrusinnovation.computation.specification.package@VersionState" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
