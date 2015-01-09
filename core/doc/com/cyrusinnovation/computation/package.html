@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>computation - Computation Engine Core API, version 1.1 - com.cyrusinnovation.computation</title>
-          <meta name="description" content="computation - Computation Engine Core API version 1.1 - com.cyrusinnovation.computation" />
-          <meta name="keywords" content="computation Computation Engine Core API version 1.1 com.cyrusinnovation.computation" />
+          <title>computation - Computation Engine Core API, version 1.2.1 - com.cyrusinnovation.computation</title>
+          <meta name="description" content="computation - Computation Engine Core API version 1.2.1 - com.cyrusinnovation.computation" />
+          <meta name="keywords" content="computation Computation Engine Core API version 1.2.1 com.cyrusinnovation.computation" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -26,7 +30,11 @@
       <div id="definition">
         <img src="../../../lib/package_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.cyrusinnovation">cyrusinnovation</a></p>
-        <h1>computation</h1>
+        <h1>computation</h1> <span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -58,7 +66,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="com.cyrusinnovation.computation.AbortIf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="com.cyrusinnovation.computation.AbortIf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AbortIfextendsAbortingComputationwithProductwithSerializable"></a>
       <a id="AbortIf:AbortIf"></a>
       <h4 class="signature">
@@ -69,10 +77,38 @@
       <span class="symbol">
         <a href="AbortIf.html"><span class="name">AbortIf</span></a><span class="params">(<span name="packageName">packageName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="imports">imports: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="predicateExpression">predicateExpression: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputMapWithTypes">inputMapWithTypes: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Symbol">Symbol</span>]</span>, <span name="inner">inner: <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>, <span name="securityConfiguration">securityConfiguration: <a href="SecurityConfiguration.html" class="extype" name="com.cyrusinnovation.computation.SecurityConfiguration">SecurityConfiguration</a></span>, <span name="computationEngineLog">computationEngineLog: <span class="extype" name="com.cyrusinnovation.computation.util.Log">Log</span></span>, <span name="shouldPropagateExceptions">shouldPropagateExceptions: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="result"> extends <a href="AbortingComputation.html" class="extype" name="com.cyrusinnovation.computation.AbortingComputation">AbortingComputation</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
-inner computation's result satisfies a given condition; i.</p>
-    </li><li name="com.cyrusinnovation.computation.AbortIfHasResults" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@AbortIfextendsAbortingComputationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation's result satisfies a given condition; i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation's result satisfies a given condition; i.e. if the facts in the domain returned
+by the computation satisfy the predicate function passed into the constructor as a string. (A
+series of computations can be a <code>SequentialComputation</code>, an <code>IterativeComputation</code>, or a <code>MappingComputation</code>.)</p><p>If this computation fails to compile or throws an exception during computation, it will always abort
+the inner series of computations, whether or not exceptions are propagated.
+</p></div><dl class="paramcmts block"><dt class="param">packageName</dt><dd class="cmt"><p>A java package name for the computation, used to prevent naming collisions.
+                                               This package will be used as the package for the class compiled from the
+                                               computation string.</p></dd><dt class="param">name</dt><dd class="cmt"><p>A name for the computation. This should follow Java camel case style
+                                               and contain no spaces, since a class is going to be compiled from it.</p></dd><dt class="param">description</dt><dd class="cmt"><p>Free text describing the rule.</p></dd><dt class="param">imports</dt><dd class="cmt"><p>A list of strings, each of which is a fully qualified class name or
+                                               otherwise valid Scala identifier/expression that is supplied to an import
+                                               statement (not including the word &quot;import&quot;).</p></dd><dt class="param">predicateExpression</dt><dd class="cmt"><p>A string that is valid Scala source code for an expression returning a
+                                               Boolean, containing free variables which will be bound by the keys in the
+                                               input map. The sequence should abort if this expression returns true.</p></dd><dt class="param">inputMapWithTypes</dt><dd class="cmt"><p>A map whose keys are the free variables in the transformationExpression,
+                                               with their types, separated by a colon as in a Scala type annotation
+                                               (space allowed). The values of the map are the keys that will be applied
+                                               to the incoming domain of facts in order to select the values with which
+                                               to bind the variables.</p></dd><dt class="param">inner</dt><dd class="cmt"><p>The wrapped computation whose returned domain map should contain values
+                                               that satisfy the predicate expression.</p></dd><dt class="param">securityConfiguration</dt><dd class="cmt"><p>An instance of the <code>SecurityConfiguration</code> trait indicating what packages
+                                               are safe to load, what classes in those packages are unsafe to load, and
+                                               where the Java security policy file for the current security manager is.</p></dd><dt class="param">computationEngineLog</dt><dd class="cmt"><p>An instance of <code>com.cyrusinnovation.computation.util.Log</code>. A convenience
+                                               case class <code>com.cyrusinnovation.computation.util.ComputationEngineLog</code>
+                                               extends this trait and wraps an slf4j log passed to its constructor.</p></dd><dt class="param">shouldPropagateExceptions</dt><dd class="cmt"><p>If a computation fails to compile or if it throws an exception
+                                               on application, it can throw an exception up the stack, or simply
+                                               log and return the domain it was passed.
+</p></dd></dl></div>
+    </li><li name="com.cyrusinnovation.computation.AbortIfHasResults" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AbortIfHasResultsextendsAbortingComputationwithProductwithSerializable"></a>
       <a id="AbortIfHasResults:AbortIfHasResults"></a>
       <h4 class="signature">
@@ -83,10 +119,19 @@ inner computation's result satisfies a given condition; i.</p>
       <span class="symbol">
         <a href="AbortIfHasResults.html"><span class="name">AbortIfHasResults</span></a><span class="params">(<span name="inner">inner: <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>)</span><span class="result"> extends <a href="AbortingComputation.html" class="extype" name="com.cyrusinnovation.computation.AbortingComputation">AbortingComputation</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
-inner computation returns a result; i.</p>
-    </li><li name="com.cyrusinnovation.computation.AbortIfNoResults" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@AbortIfHasResultsextendsAbortingComputationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation returns a result; i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation returns a result; i.e. if the resultKey specified for that computation
+is found in the domain of facts returned from the computation.
+</p></div><dl class="paramcmts block"><dt class="param">inner</dt><dd class="cmt"><p>The wrapped computation whose returned domain map should not contain
+                 the resultKey for that computation, if the sequence is to continue.
+</p></dd></dl></div>
+    </li><li name="com.cyrusinnovation.computation.AbortIfNoResults" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AbortIfNoResultsextendsAbortingComputationwithProductwithSerializable"></a>
       <a id="AbortIfNoResults:AbortIfNoResults"></a>
       <h4 class="signature">
@@ -97,9 +142,18 @@ inner computation returns a result; i.</p>
       <span class="symbol">
         <a href="AbortIfNoResults.html"><span class="name">AbortIfNoResults</span></a><span class="params">(<span name="inner">inner: <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>)</span><span class="result"> extends <a href="AbortingComputation.html" class="extype" name="com.cyrusinnovation.computation.AbortingComputation">AbortingComputation</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
-inner computation does not return a result; i.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@AbortIfNoResultsextendsAbortingComputationwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation does not return a result; i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Wraps an inner computation that is part of a series of computations, and aborts the series if the
+inner computation does not return a result; i.e. if the resultKey specified for that computation
+is not found in the domain of facts returned from the computation.
+</p></div><dl class="paramcmts block"><dt class="param">inner</dt><dd class="cmt"><p>The wrapped computation whose returned domain map should contain
+                 the resultKey for that computation, if the sequence is to continue.
+</p></dd></dl></div>
     </li><li name="com.cyrusinnovation.computation.AbortingComputation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="AbortingComputationextendsComputation"></a>
       <a id="AbortingComputation:AbortingComputation"></a>
@@ -111,10 +165,14 @@ inner computation does not return a result; i.</p>
       <span class="symbol">
         <a href="AbortingComputation.html"><span class="name">AbortingComputation</span></a><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Wraps a computation that is used in a series of computations, and signals that the remainder of the sequence
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@AbortingComputationextendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wraps a computation that is used in a series of computations, and signals that the remainder of the sequence
 should stop being executed if the results fail a specified test.</p>
-    </li><li name="com.cyrusinnovation.computation.Computation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="com.cyrusinnovation.computation.Computation" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ComputationextendsAnyRef"></a>
       <a id="Computation:Computation"></a>
       <h4 class="signature">
@@ -125,9 +183,17 @@ should stop being executed if the results fail a specified test.</p>
       <span class="symbol">
         <a href="Computation.html"><span class="name">Computation</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Operates on a set of facts (contained in a Map[Symbol, Any] to return a result in
-the same form.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@ComputationextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Operates on a set of facts (contained in a Map[Symbol, Any] to return a result in
+the same form.</p><div class="fullcomment"><div class="comment cmt"><p>Operates on a set of facts (contained in a Map[Symbol, Any] to return a result in
+the same form. Implementers must extend the <code>compute</code> method to specify the specific
+computation, and the <code>resultKey</code> method allowing the results to be identified in the
+returned map.
+</p></div></div>
     </li><li name="com.cyrusinnovation.computation.Domain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DomainextendsProductwithSerializable"></a>
       <a id="Domain:Domain"></a>
@@ -139,10 +205,15 @@ the same form.</p>
       <span class="symbol">
         <a href="Domain.html"><span class="name">Domain</span></a><span class="params">(<span name="facts">facts: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Symbol">Symbol</span>, <span class="extype" name="scala.Any">Any</span>]</span>, <span name="continue">continue: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Contains the facts to be operated on in a computation as well as metadata indicating
-whether the caller should continue or not (e.</p>
-    </li><li name="com.cyrusinnovation.computation.FoldingComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@DomainextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Contains the facts to be operated on in a computation as well as metadata indicating
+whether the caller should continue or not (e.g., if the caller is a sequence of
+computations).</p>
+    </li><li name="com.cyrusinnovation.computation.FoldingComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="FoldingComputation[+A,+SeqType&lt;:scala.collection.LinearSeqOptimized[A,SeqType]]extendsComputation"></a>
       <a id="FoldingComputation[+A,+SeqType&lt;:LinearSeqOptimized[A,SeqType]]:FoldingComputation[A,SeqType]"></a>
       <h4 class="signature">
@@ -153,9 +224,25 @@ whether the caller should continue or not (e.</p>
       <span class="symbol">
         <a href="FoldingComputation.html"><span class="name">FoldingComputation</span></a><span class="tparams">[<span name="A">+A</span>, <span name="SeqType">+SeqType &lt;: <span class="extype" name="scala.collection.LinearSeqOptimized">LinearSeqOptimized</span>[<span class="extype" name="com.cyrusinnovation.computation.FoldingComputation.A">A</span>, <span class="extype" name="com.cyrusinnovation.computation.FoldingComputation.SeqType">SeqType</span>]</span>]</span><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A computation that applies another computation serially to a sequence of values (i.</p>
-    </li><li name="com.cyrusinnovation.computation.IterativeComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@FoldingComputation[+A,+SeqType&lt;:scala.collection.LinearSeqOptimized[A,SeqType]]extendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A computation that applies another computation serially to a sequence of values (i.e., a Scala
+LinearSeqOptimized), accumulating the result in a single value.</p><div class="fullcomment"><div class="comment cmt"><p>A computation that applies another computation serially to a sequence of values (i.e., a Scala
+LinearSeqOptimized), accumulating the result in a single value. The input sequence of values
+is passed to the computation as an entry in the domain of facts, as is the initial value of the
+accumulator. The result is a distinct values returned as an entry in the output domain.
+The series of computations can be terminated early, and only applied to part of the sequence of
+values, if the inner computation (usually, an AbortingComputation) indicates that it should
+not continue.</p><p>For each value in the sequence to be iterated over, the folding computation creates a distinct
+domain of facts. This domain is the original domain with the addition of two key-value pairs,
+one containing the single value, and the other containing the accumulated result up to that point.
+(The keys are the keys required by the inner computation to identify the input data; note that
+the inner computation must depend on at least these two parameters.)</p><p>This type of computation will always propagate exceptions up the stack.
+</p></div></div>
+    </li><li name="com.cyrusinnovation.computation.IterativeComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="IterativeComputation[+A,+SeqType&lt;:scala.collection.LinearSeqOptimized[A,SeqType]]extendsComputation"></a>
       <a id="IterativeComputation[+A,+SeqType&lt;:LinearSeqOptimized[A,SeqType]]:IterativeComputation[A,SeqType]"></a>
       <h4 class="signature">
@@ -166,9 +253,23 @@ whether the caller should continue or not (e.</p>
       <span class="symbol">
         <a href="IterativeComputation.html"><span class="name">IterativeComputation</span></a><span class="tparams">[<span name="A">+A</span>, <span name="SeqType">+SeqType &lt;: <span class="extype" name="scala.collection.LinearSeqOptimized">LinearSeqOptimized</span>[<span class="extype" name="com.cyrusinnovation.computation.IterativeComputation.A">A</span>, <span class="extype" name="com.cyrusinnovation.computation.IterativeComputation.SeqType">SeqType</span>]</span>]</span><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A computation that applies another computation serially to a sequence of values (i.</p>
-    </li><li name="com.cyrusinnovation.computation.MappingComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@IterativeComputation[+A,+SeqType&lt;:scala.collection.LinearSeqOptimized[A,SeqType]]extendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A computation that applies another computation serially to a sequence of values (i.e., a Scala
+LinearSeqOptimized).</p><div class="fullcomment"><div class="comment cmt"><p>A computation that applies another computation serially to a sequence of values (i.e., a Scala
+LinearSeqOptimized). The value sequence is passed to the computation as an entry in the domain
+of facts. The result is a separate sequence of values returned as an entry in the output domain.
+The series of computations can be terminated early, and only applied to part of the sequence of
+values, if the inner computation (usually, an AbortingComputation) indicates that it should
+not continue.</p><p>For each value in the sequence to be iterated over, the iterative computation creates a distinct
+domain of facts. This domain is the original domain with the addition of a key-value pair containing
+the single value. (The key is the key required by the inner computation to identify its
+input data.)</p><p>This type of computation will always propagate exceptions up the stack.
+</p></div></div>
+    </li><li name="com.cyrusinnovation.computation.MappingComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MappingComputation[A,+B,+MapType&lt;:scala.collection.MapLike[A,B,MapType]withMap[A,B]]extendsComputation"></a>
       <a id="MappingComputation[A,+B,+MapType&lt;:MapLike[A,B,MapType]withMap[A,B]]:MappingComputation[A,B,MapType]"></a>
       <h4 class="signature">
@@ -179,9 +280,23 @@ whether the caller should continue or not (e.</p>
       <span class="symbol">
         <a href="MappingComputation.html"><span class="name">MappingComputation</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">+B</span>, <span name="MapType">+MapType &lt;: <span class="extype" name="scala.collection.MapLike">MapLike</span>[<span class="extype" name="com.cyrusinnovation.computation.MappingComputation.A">A</span>, <span class="extype" name="com.cyrusinnovation.computation.MappingComputation.B">B</span>, <span class="extype" name="com.cyrusinnovation.computation.MappingComputation.MapType">MapType</span>] with <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="com.cyrusinnovation.computation.MappingComputation.A">A</span>, <span class="extype" name="com.cyrusinnovation.computation.MappingComputation.B">B</span>]</span>]</span><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A computation that applies another computation to a each value of a map (i.</p>
-    </li><li name="com.cyrusinnovation.computation.SecurityConfiguration" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@MappingComputation[A,+B,+MapType&lt;:scala.collection.MapLike[A,B,MapType]withMap[A,B]]extendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A computation that applies another computation to a each value of a map (i.e., a Scala MapLike).</p><div class="fullcomment"><div class="comment cmt"><p>A computation that applies another computation to a each value of a map (i.e., a Scala MapLike).
+This map  is passed to the computation as an entry in the domain of facts. The result is a
+separate map of values returned as an entry in the output domain, whose keys are the keys of
+the original map, and whose values are the results of the inner computation applied to the
+corresponding values. The series of computations can be terminated early, and only applied
+to part of the map, if the inner computation (usually, an AbortingComputation) indicates that
+it should not continue.</p><p>For each key-value pair in the map, the MappingComputation creates a distinct domain of facts.
+This domain is the original domain with the addition of an entry containing the value from the
+key-value pair. (The entry's key is the key required by the inner computation to identify its
+input data.)</p><p>This type of computation will always propagate exceptions up the stack.
+</p></div></div>
+    </li><li name="com.cyrusinnovation.computation.SecurityConfiguration" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SecurityConfigurationextendsAnyRef"></a>
       <a id="SecurityConfiguration:SecurityConfiguration"></a>
       <h4 class="signature">
@@ -192,10 +307,16 @@ whether the caller should continue or not (e.</p>
       <span class="symbol">
         <a href="SecurityConfiguration.html"><span class="name">SecurityConfiguration</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Establishes the location of the Java SecurityManager policy file, as well as the packages
-to be allowed in computations.</p>
-    </li><li name="com.cyrusinnovation.computation.SequentialComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@SecurityConfigurationextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Establishes the location of the Java SecurityManager policy file, as well as the packages
+to be allowed in computations.</p><div class="fullcomment"><div class="comment cmt"><p>Establishes the location of the Java SecurityManager policy file, as well as the packages
+to be allowed in computations. Individual classes within those classes may be blacklisted.
+</p></div></div>
+    </li><li name="com.cyrusinnovation.computation.SequentialComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SequentialComputationextendsComputation"></a>
       <a id="SequentialComputation:SequentialComputation"></a>
       <h4 class="signature">
@@ -206,9 +327,16 @@ to be allowed in computations.</p>
       <span class="symbol">
         <a href="SequentialComputation.html"><span class="name">SequentialComputation</span></a><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A single computation created from a series of computations.</p>
-    </li><li name="com.cyrusinnovation.computation.SimpleComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@SequentialComputationextendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A single computation created from a series of computations.</p><div class="fullcomment"><div class="comment cmt"><p>A single computation created from a series of computations. The sequence of computations
+aborts if the result of an inner computation (usually, an AbortingComputation) indicates
+that it should not continue.</p><p>This type of computation will always propagate exceptions up the stack.
+</p></div></div>
+    </li><li name="com.cyrusinnovation.computation.SimpleComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SimpleComputationextendsComputation"></a>
       <a id="SimpleComputation:SimpleComputation"></a>
       <h4 class="signature">
@@ -219,9 +347,16 @@ to be allowed in computations.</p>
       <span class="symbol">
         <a href="SimpleComputation.html"><span class="name">SimpleComputation</span></a><span class="result"> extends <a href="Computation.html" class="extype" name="com.cyrusinnovation.computation.Computation">Computation</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A computation instantiated from a Scala expression passed into the constructor as a string,
-along with various additional configurations (see constructor params).</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@SimpleComputationextendsComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A computation instantiated from a Scala expression passed into the constructor as a string,
+along with various additional configurations (see constructor params).</p><div class="fullcomment"><div class="comment cmt"><p>A computation instantiated from a Scala expression passed into the constructor as a string,
+along with various additional configurations (see constructor params). When the computation's <code>compute</code>
+method is called, the computation will execute against an arbitrary Scala map (a <code>Map[Any, Any]</code>)
+and return a <code>Map[Any, Any]</code> containing the results.</p></div></div>
     </li></ol>
             </div>
 
@@ -240,7 +375,11 @@ along with various additional configurations (see constructor params).</p>
       <span class="symbol">
         <a href="AbortIf$.html"><span class="name">AbortIf</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@AbortIf" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="com.cyrusinnovation.computation.Computation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Computation"></a>
@@ -253,7 +392,11 @@ along with various additional configurations (see constructor params).</p>
       <span class="symbol">
         <a href="Computation$.html"><span class="name">Computation</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@Computation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="com.cyrusinnovation.computation.DefaultSecurityConfiguration" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DefaultSecurityConfiguration"></a>
@@ -266,8 +409,12 @@ along with various additional configurations (see constructor params).</p>
       <span class="symbol">
         <a href="DefaultSecurityConfiguration$.html"><span class="name">DefaultSecurityConfiguration</span></a><span class="result"> extends <a href="SecurityConfiguration.html" class="extype" name="com.cyrusinnovation.computation.SecurityConfiguration">SecurityConfiguration</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A default implementation of the SecurityConfiguration trait inheriting the default implementations
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@DefaultSecurityConfiguration" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A default implementation of the SecurityConfiguration trait inheriting the default implementations
 of all the methods in the trait.</p>
     </li><li name="com.cyrusinnovation.computation.Domain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Domain"></a>
@@ -280,7 +427,11 @@ of all the methods in the trait.</p>
       <span class="symbol">
         <a href="Domain$.html"><span class="name">Domain</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@Domain" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="com.cyrusinnovation.computation.SimpleComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SimpleComputation"></a>
@@ -293,7 +444,11 @@ of all the methods in the trait.</p>
       <span class="symbol">
         <a href="SimpleComputation$.html"><span class="name">SimpleComputation</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.cyrusinnovation.computation.package@SimpleComputation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -320,6 +475,7 @@ of all the methods in the trait.</p>
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
+
+
     </body>
       </html>

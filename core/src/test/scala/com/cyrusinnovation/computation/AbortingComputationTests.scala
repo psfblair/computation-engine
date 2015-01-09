@@ -7,7 +7,7 @@ import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import com.cyrusinnovation.computation.util.Log
 import org.scalamock.scalatest.MockFactory
-import org.scalamock.FunctionAdapter2
+import org.scalamock.function.FunctionAdapter2
 
 class AbortingComputationTests extends FlatSpec with Matchers with MockFactory {
 
@@ -65,14 +65,14 @@ class AbortingComputationTests extends FlatSpec with Matchers with MockFactory {
     val logger = stub[Log]
     val testRules = TestRules(logger)
 
-    evaluating {
+    an [com.googlecode.scalascriptengine.internals.CompilationError] should be thrownBy {
       testRules.abortIfComputationWithSyntaxError(shouldPropagate = true)
-    } should produce[com.googlecode.scalascriptengine.CompilationError]
+    }
 
     (logger.error(_:String, _:Throwable)).verify {    // Uses implicit conversion above
       (msg: String, t: Throwable) => {
           msg == "Computation failed to compile" &&
-          t.getClass == classOf[com.googlecode.scalascriptengine.CompilationError] &&
+          t.getClass == classOf[com.googlecode.scalascriptengine.internals.CompilationError] &&
           t.getMessage.startsWith("2 error(s) occured")
       }
     }
@@ -87,7 +87,7 @@ class AbortingComputationTests extends FlatSpec with Matchers with MockFactory {
     (logger.error(_:String, _:Throwable)).verify {    // Uses implicit conversion above
       (msg: String, t: Throwable) => {
           msg == "Computation failed to compile" &&
-          t.getClass == classOf[com.googlecode.scalascriptengine.CompilationError] &&
+          t.getClass == classOf[com.googlecode.scalascriptengine.internals.CompilationError] &&
           t.getMessage.startsWith("2 error(s) occured")
       }
     }
@@ -114,9 +114,9 @@ class AbortingComputationTests extends FlatSpec with Matchers with MockFactory {
 
     val exceptionThrowingComputation = testRules.exceptionThrowingAbortIf(shouldPropagate = true)
 
-    evaluating {
+    an [java.lang.RuntimeException] should be thrownBy {
       exceptionThrowingComputation.compute(facts)
-    } should produce [java.lang.RuntimeException]
+    }
 
     (logger.error(_:String, _:Throwable)).verify{
       (msg: String, t: Throwable) => {

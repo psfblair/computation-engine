@@ -26,9 +26,9 @@ class CompoundComputationTests extends FlatSpec with Matchers with MockFactory {
     val sequentialComputation = new SequentialComputation(List(testRules.maxValueComputation,
                                                                testRules.exceptionThrowingSimpleComputation(shouldPropagate = true)))
 
-    evaluating {
+    an [java.lang.RuntimeException] should be thrownBy {
       sequentialComputation.compute(facts)
-    } should produce [java.lang.RuntimeException]
+    }
   }
 
   "An iterative computation" should "perform an inner computation once for each element in a specified sequence" in {

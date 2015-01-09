@@ -66,6 +66,7 @@ subprojects {
     ]
 
     jar {
+        baseName = project.name + "_$scalaMajorVersion"
         manifest {
             attributes( manifestAttributes )
         }
@@ -73,6 +74,7 @@ subprojects {
 
     task sourceJar(type: Jar) {
         from sourceSets.main.allScala
+        baseName = project.name + "_$scalaMajorVersion"
         classifier 'sources'
         manifest {
             attributes( manifestAttributes )
@@ -83,6 +85,7 @@ subprojects {
 
     task scaladocJar(type: Jar, dependsOn: scaladoc) {
         from scaladoc.destinationDir
+        baseName = project.name + "_$scalaMajorVersion"
         classifier 'javadoc'
         manifest {
             attributes( manifestAttributes )

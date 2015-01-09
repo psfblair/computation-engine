@@ -7,6 +7,7 @@ import java.io.File
 import java.util.UUID
 import java.io.FileWriter
 import com.googlecode.scalascriptengine._
+import com.googlecode.scalascriptengine.internals.ScalaClassLoader
 import scala.Symbol
 import java.security.Policy
 import com.googlecode.scalascriptengine.Config
@@ -138,7 +139,7 @@ private class EvalCodeImpl[ResultType](packageName: String,
 
   private def createConfig(srcFolder: File, classesDir: File, securityConfiguration: SecurityConfiguration) : Config = {
     val baseConfig = Config(
-      List(SourcePath(srcFolder, classesDir)),
+      List(SourcePath(Set(srcFolder), classesDir)),
       ScalaScriptEngine.currentClassPath,
       Set()
     )
